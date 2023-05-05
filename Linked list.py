@@ -1,3 +1,4 @@
+
 class Node(object):
     def __init__(self,data=None):
         self._datavalue = data
@@ -13,7 +14,7 @@ class Node(object):
 class SingleLinkedList(object):
     def __init__(self,data):
         self._head = Node(data=data)
-    def search_node(self,data):
+    def _search_node(self,data):
         temp_node = self.head
         if data:
             node=Node(data)
@@ -27,6 +28,12 @@ class SingleLinkedList(object):
                 
         else:
             return None
+            
+    def _search_index(self, index):
+        temp_node = self.head
+        for i in range(index):
+            temp_node = temp_node.nextvalue
+        return temp_node        
 
     def display(self):
         printing = self._head
@@ -60,7 +67,7 @@ class SingleLinkedList(object):
         index = 0 
         isnode = self._search_node(data)
         if isnode:
-            while temp_node.addvalue != data:
+            while temp_node.datavalue != data:
                 index += 1
                 temp_node = temp_node._addvalue
             return index 
@@ -92,7 +99,6 @@ class SingleLinkedList(object):
     def update_data(self,old_data,new_data):
         update_node = self._search_node(old_data)
         update_node.datavalue = new_data
-
 
 
 
